@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="252.0" fitWidth="300.0" layoutX="-27.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/Bank%20logo.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="235.0" layoutY="-3.0" prefHeight="393.0" prefWidth="365.0">
+         <children>
+            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" opacity="0.7" text="Login">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="password" layoutX="75.0" layoutY="171.0" promptText="Password" />
+            <TextField fx:id="username" layoutX="75.0" layoutY="124.0" promptText="Username" />
+            <Separator layoutX="63.0" layoutY="266.0" prefWidth="200.0" />
+            <Label layoutX="123.0" layoutY="345.0" text="New User?" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="createAccount" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" opacity="0.7" text="Create Account" />
+            <Label fx:id="invalidLogin" layoutX="89.0" layoutY="99.0" prefWidth="117.0" textFill="#f21313" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
