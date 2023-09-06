@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankgui.LoginController">
    <children>
       <AnchorPane layoutX="235.0" layoutY="-3.0" prefHeight="393.0" prefWidth="365.0">
          <children>
-            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" opacity="0.7" text="Login">
+            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#userLogin" opacity="0.7" text="Login">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
@@ -27,8 +27,8 @@
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="createAccount" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" opacity="0.7" text="Create Account" />
-            <Label fx:id="invalidLogin" layoutX="89.0" layoutY="99.0" prefWidth="117.0" textFill="#f21313" />
+            <Button fx:id="createAcc" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" onAction="#createAccount" opacity="0.7" text="Create Account" />
+            <Label fx:id="invalidLogin" layoutX="68.0" layoutY="98.0" prefHeight="17.0" prefWidth="239.0" textFill="#f21313" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="337.0" fitWidth="298.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
