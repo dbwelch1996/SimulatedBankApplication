@@ -2,6 +2,7 @@ package com.example.bankgui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -31,24 +32,23 @@ public class LoginController {
     public void userLogin(ActionEvent event) throws IOException {
         checkLogin();
     }
-    public void createAccount(ActionEvent event) throws IOException{
-        //Create Account work
+    public void createAccount() throws IOException {
+        Main m = new Main();
+        m.changeScene("BankCreateAccount.fxml");
     }
 
 
     private void checkLogin() throws IOException{
     Main m = new Main();
-    Auth au = new Auth();
-
-    if(username.getText().equals("testusername") && password.getText().equals("testpassword")){
+    DatabaseManager db = new DatabaseManager();
+    if(db.isPasswordCorrect(username.toString(),password.toString())){
         invalidLogin.setText("Successful Login");
-        //m.changeScene("BankMainMenu.fxml"); This is the next scene once the user logs in
+        m.changeScene("BankMainMenu.fxml");
     }else if(username.getText().isEmpty() || password.getText().isEmpty()){
         invalidLogin.setText("Please enter your username or password");
     }else{
         invalidLogin.setText("Invalid username or password");
     }
-
 
     }
 

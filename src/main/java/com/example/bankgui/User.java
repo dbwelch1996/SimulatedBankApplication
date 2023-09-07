@@ -1,3 +1,5 @@
+package com.example.bankgui;
+
 public class User {
 
     private String userName;
