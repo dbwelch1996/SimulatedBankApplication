@@ -1,33 +1,38 @@
 package com.example.bankgui;
 
+import com.example.bankgui.*;
+
 import java.sql.*;
 
 public class DatabaseManager {
-   final private String jdbcUrl = "jdbc:mysql://localhost:3306/Users";
-   final private String username = "root";
-   final private Config config = new Config();
-   final private  String password = config.getSqlPassword();
+    final private String jdbcUrl = "jdbc:mysql://localhost:3306/Users";
+    final private String username = "root";
+    final private Config config = new Config();
+    final private String password = config.getSqlPassword();
 
-  private static Connection connection = null;
+    private static Connection connection = null;
 
     public DatabaseManager() {
         try {
             connection = DriverManager.getConnection(jdbcUrl, username, password);
+            connection.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public static void insertData(String username, String password) {
-        String sql = "INSERT INTO Users (username, password) VALUES (?, ?)";
+
+    public void insertData(String username, String password) {
+        String sql = "INSERT INTO UserData (username, password, money) VALUES (?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            preparedStatement.setInt(3, 0);
+            preparedStatement.setInt(3, 0); // Set money to 0
 
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {
+                connection.commit(); // Commit the transaction
                 System.out.println("Data inserted successfully.");
             } else {
                 System.out.println("Data insertion failed.");
@@ -36,7 +41,8 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
-    public void closeDataBase() {
+
+    public void closeDatabase() {
         try {
             if (connection != null) {
                 connection.close();
@@ -47,7 +53,7 @@ public class DatabaseManager {
     }
 
     public boolean isPasswordCorrect(String username, String password) {
-        String sql = "SELECT COUNT(*) FROM Users WHERE username = ? AND password = ?";
+        String sql = "SELECT COUNT(*) FROM UserData WHERE username = ? AND password = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, username);
@@ -65,6 +71,4 @@ public class DatabaseManager {
 
         return false; // If there was an error or no match found, return false
     }
-
 }
-

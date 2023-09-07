@@ -6,16 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankgui.CreateAccountController">
    <children>
-      <Button layoutX="248.0" layoutY="321.0" mnemonicParsing="false" text="Create Account" />
-      <TextField layoutX="219.0" layoutY="73.0" promptText="Username" />
+      <Button fx:id="createAccountButton" layoutX="248.0" layoutY="321.0" mnemonicParsing="false" onAction="#createAccount" text="Create Account" />
+      <TextField fx:id="createdUsername" layoutX="219.0" layoutY="73.0" promptText="Username" />
       <Label layoutX="198.0" layoutY="49.0" prefHeight="17.0" prefWidth="204.0" text="Please enter your desired username" textFill="WHITE" />
       <Label layoutX="198.0" layoutY="135.0" prefHeight="17.0" prefWidth="204.0" text="Please enter your desired password" textFill="WHITE" />
       <Label layoutX="198.0" layoutY="222.0" prefHeight="17.0" prefWidth="204.0" text="Please reenter your desired password" textFill="WHITE" />
-      <Label layoutX="198.0" layoutY="297.0" prefHeight="17.0" prefWidth="235.0" text="Passwords do not match, please try again" textFill="#ff1c1c" visible="false" />
-      <PasswordField layoutX="219.0" layoutY="160.0" promptText="Password" />
-      <PasswordField layoutX="220.0" layoutY="247.0" promptText="Reenter Password" />
+      <Label fx:id="invalidPassword" layoutX="198.0" layoutY="297.0" prefHeight="17.0" prefWidth="235.0" textFill="#ff1c1c" />
+      <PasswordField fx:id="createdPassword" layoutX="219.0" layoutY="160.0" promptText="Password" />
+      <PasswordField fx:id="verifyPassword" layoutX="220.0" layoutY="247.0" promptText="Reenter Password" />
    </children>
 </AnchorPane>
