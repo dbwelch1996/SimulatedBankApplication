@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class DepositScreenController {
 
@@ -19,9 +21,14 @@ public class DepositScreenController {
     private Label invalidMessage;
 
     public void depositAmount() throws InterruptedException, IOException {
-       double depositedAmount = Double.parseDouble(enteredAmount.getText());
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        String formattedDateTime = currentDateTime.format(formatter);
+
+        double depositedAmount = Double.parseDouble(enteredAmount.getText());
        DatabaseManager db = new DatabaseManager();
        db.updateMoneyByUsername(UserSession.getLoggedInUsername(), db.getMoneyByUsername(UserSession.getLoggedInUsername()) + depositedAmount);
+       db.insertTransaction(UserSession.getLoggedInUsername(), "Deposit", depositedAmount, formattedDateTime);
        invalidMessage.setText("Money Deposited Successfully!");
        Main m = new Main();
        Thread.sleep(1000);

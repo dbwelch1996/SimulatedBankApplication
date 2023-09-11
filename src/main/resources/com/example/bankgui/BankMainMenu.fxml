@@ -16,6 +16,6 @@
             <Image url="@../../../Img/NewBankLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="cbth" layoutX="286.0" layoutY="166.0" mnemonicParsing="false" text="Check Balance / Transaction History" />
+      <Button fx:id="cbth" layoutX="286.0" layoutY="166.0" mnemonicParsing="false" onAction="#cbth" text="Check Balance / Transaction History" />
    </children>
 </AnchorPane>

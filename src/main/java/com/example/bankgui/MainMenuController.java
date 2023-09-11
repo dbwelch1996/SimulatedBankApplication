@@ -25,7 +25,8 @@ public class MainMenuController {
     }
 
     public void cbth() throws IOException {
-       // Need to do.
+       Main m = new Main();
+       m.changeScene("TransactionHistory.fxml");
     }
 
     public void logout() throws IOException {

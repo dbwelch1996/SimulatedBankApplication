@@ -107,5 +107,61 @@ public class DatabaseManager {
 
         return false; // Money update failed
     }
+    public boolean insertTransaction(String username, String transactionType, double transactionAmount, String Date) {
+        String sql = "INSERT INTO TransactionHistory (username, transactionType, amount, date) VALUES (?, ?, ?, ?)";
 
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, transactionType);
+            preparedStatement.setDouble(3, transactionAmount);
+            preparedStatement.setString(4, Date);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int transactionID = generatedKeys.getInt(1); // Get the auto-incremented transaction ID
+                    connection.commit(); // Commit the transaction
+                    System.out.println("Transaction ID: " + transactionID); // Print the generated transaction ID
+                    return true; // Transaction inserted successfully
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false; // Transaction insert failed
+    }
+
+
+    public String getAllTransactionsByUsername(String username) {
+        String sql = "SELECT transactionType, amount, Date FROM TransactionHistory WHERE username = ?";
+        StringBuilder transactionDetails = new StringBuilder();
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String transactionType = resultSet.getString("transactionType");
+                double transactionAmount = resultSet.getDouble("amount");
+                String transactionDate = resultSet.getString("date");
+
+                // Determine whether it's a deposit or withdrawal
+                String sign = (transactionType.equalsIgnoreCase("withdraw")) ? "-" : "+";
+
+                // Format the transaction details
+                String formattedTransaction = "Date: " + transactionDate + ", " + transactionType + ": " + sign + "$" + transactionAmount + "\n";
+
+                // Append to the result string
+                transactionDetails.append(formattedTransaction).append("\n");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return transactionDetails.toString();
+    }
 }

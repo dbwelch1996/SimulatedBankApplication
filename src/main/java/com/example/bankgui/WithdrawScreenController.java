@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class WithdrawScreenController {
 
@@ -27,6 +29,14 @@ public class WithdrawScreenController {
         moneyLabel.setText("$" + amount);
     }
     public void withdraw() throws InterruptedException, IOException {
+        //Getting time for the date column
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        // Define a DateTimeFormatter to specify the desired format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        // Format the LocalDateTime as a string
+        String formattedDateTime = currentDateTime.format(formatter);
+
+
         DatabaseManager db = new DatabaseManager();
         String username = UserSession.getLoggedInUsername();
         double amount = db.getMoneyByUsername(username);
@@ -35,8 +45,7 @@ public class WithdrawScreenController {
             invalidMessage.setText("You are trying to withdraw more than you have, please try again");
         }else{
             db.updateMoneyByUsername(username, amount - userEntered);
-            invalidMessage.setText("Withdraw Successful");
-            Thread.sleep(100);
+            db.insertTransaction(UserSession.getLoggedInUsername(), "Withdraw", amount, formattedDateTime);
             Main m = new Main();
             m.changeScene("BankMainMenu.fxml");
         }
@@ -45,5 +54,6 @@ public class WithdrawScreenController {
         Main m = new Main();
         m.changeScene("BankMainMenu.FXML");
     }
+
 
 }
