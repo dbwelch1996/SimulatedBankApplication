@@ -50,24 +50,10 @@ public class LoginController {
     }else{
         invalidLogin.setText("Invalid username or password");
     }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void exit(){
+        System.exit(0);
+    }
 
 
 }

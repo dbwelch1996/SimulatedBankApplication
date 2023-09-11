@@ -7,16 +7,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankgui.MainMenuController">
    <children>
-      <Button fx:id="withdrawButton" layoutX="280.0" layoutY="94.0" mnemonicParsing="false" stylesheets="@style.css" text="Withdraw" />
-      <Button fx:id="checkBalanceButton" layoutX="440.0" layoutY="172.0" mnemonicParsing="false" text="Check Balance" />
-      <Button fx:id="depositButton" layoutX="440.0" layoutY="94.0" mnemonicParsing="false" text="Deposit" />
-      <Button fx:id="logoutButton" layoutX="510.0" layoutY="347.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="withdrawButton" layoutX="280.0" layoutY="94.0" mnemonicParsing="false" onAction="#withdraw" stylesheets="@style.css" text="Withdraw" />
+      <Button fx:id="depositButton" layoutX="440.0" layoutY="94.0" mnemonicParsing="false" onAction="#deposit" text="Deposit" />
+      <Button fx:id="logoutButton" layoutX="510.0" layoutY="347.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="325.0" fitWidth="298.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Img/NewBankLogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="transactionHistory" layoutX="280.0" layoutY="172.0" mnemonicParsing="false" text="Transaction History" />
+      <Button fx:id="cbth" layoutX="286.0" layoutY="166.0" mnemonicParsing="false" text="Check Balance / Transaction History" />
    </children>
 </AnchorPane>

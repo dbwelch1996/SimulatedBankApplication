@@ -9,15 +9,17 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="backgroundColor" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankgui.WithdrawScreenController">
    <children>
-      <TextField fx:id="enteredAmount" layoutX="329.0" layoutY="145.0" />
-      <Label layoutX="320.0" layoutY="109.0" text="Please Enter the Desired Amount" textFill="WHITE" />
-      <Button fx:id="nextButton" layoutX="439.0" layoutY="328.0" mnemonicParsing="false" text="Next" />
-      <Button fx:id="cancelButton" layoutX="511.0" layoutY="328.0" mnemonicParsing="false" text="Cancel" />
+      <TextField fx:id="enteredAmount" layoutX="329.0" layoutY="153.0" />
+      <Label layoutX="276.0" layoutY="85.0" text="Please enter the amount you want to withdraw" textFill="WHITE" />
+      <Button fx:id="withdrawButton" layoutX="409.0" layoutY="328.0" mnemonicParsing="false" onAction="#withdraw" text="Withdraw" />
+      <Button fx:id="cancelButton" layoutX="511.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
       <Label fx:id="invalidMessage" layoutX="401.0" layoutY="192.0" prefHeight="17.0" prefWidth="15.0" textFill="RED" />
       <ImageView fitHeight="274.0" fitWidth="291.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Img/NewBankLogo.png" />
          </image>
       </ImageView>
+      <Label layoutX="276.0" layoutY="112.0" text="You currently have: " textFill="WHITE" />
+      <Label fx:id="moneyLabel" layoutX="394.0" layoutY="112.0" textFill="WHITE" />
    </children>
 </AnchorPane>

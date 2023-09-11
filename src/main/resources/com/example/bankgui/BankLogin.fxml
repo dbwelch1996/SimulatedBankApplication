@@ -14,21 +14,22 @@
    <children>
       <AnchorPane layoutX="235.0" layoutY="-3.0" prefHeight="393.0" prefWidth="365.0">
          <children>
-            <TextField fx:id="username" layoutX="75.0" layoutY="124.0" promptText="Username" focusTraversable="true" />
-            <PasswordField fx:id="password" layoutX="75.0" layoutY="171.0" promptText="Password" focusTraversable="true" />
-            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#userLogin" opacity="0.7" text="Login" focusTraversable="true">
+            <TextField fx:id="username" focusTraversable="true" layoutX="75.0" layoutY="124.0" promptText="Username" />
+            <PasswordField fx:id="password" focusTraversable="true" layoutX="75.0" layoutY="171.0" promptText="Password" />
+            <Button fx:id="login" focusTraversable="true" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#userLogin" opacity="0.7" text="Login">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </Button>
             <Separator layoutX="63.0" layoutY="266.0" prefWidth="200.0" />
-            <Label layoutX="123.0" layoutY="345.0" text="New User?" textFill="WHITE">
+            <Label layoutX="75.0" layoutY="288.0" text="New User?" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="createAcc" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" onAction="#createAccount" opacity="0.7" text="Create Account" focusTraversable="true" />
+            <Button fx:id="createAcc" focusTraversable="true" layoutX="155.0" layoutY="282.0" mnemonicParsing="false" onAction="#createAccount" opacity="0.7" text="Create Account" />
             <Label fx:id="invalidLogin" layoutX="68.0" layoutY="98.0" prefHeight="17.0" prefWidth="239.0" textFill="#f21313" />
+            <Button fx:id="exitButton" focusTraversable="true" layoutX="307.0" layoutY="365.0" mnemonicParsing="false" onAction="#exit" opacity="0.7" text="Exit" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="337.0" fitWidth="298.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">

@@ -21,15 +21,16 @@ public class DepositScreenController {
     public void depositAmount() throws InterruptedException, IOException {
        double depositedAmount = Double.parseDouble(enteredAmount.getText());
        DatabaseManager db = new DatabaseManager();
-       db.updateMoneyByUsername(UserSession.getLoggedInUsername(), depositedAmount);
+       db.updateMoneyByUsername(UserSession.getLoggedInUsername(), db.getMoneyByUsername(UserSession.getLoggedInUsername()) + depositedAmount);
        invalidMessage.setText("Money Deposited Successfully!");
        Main m = new Main();
-       Thread.sleep(100);
+       Thread.sleep(1000);
        m.changeScene("BankMainMenu.FXML");
     }
     public void cancel() throws IOException {
         Main m = new Main();
         m.changeScene("BankMainMenu.FXML");
     }
+
 
 }

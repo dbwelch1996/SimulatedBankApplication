@@ -71,7 +71,7 @@ public class DatabaseManager {
 
         return false; // If there was an error or no match found, return false
     }
-    public int getMoneyByUsername(String username) {
+    public double getMoneyByUsername(String username) {
         String sql = "SELECT money FROM UserData WHERE username = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -80,7 +80,7 @@ public class DatabaseManager {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                return resultSet.getInt("money");
+                return resultSet.getDouble("money");
             }
         } catch (SQLException e) {
             e.printStackTrace();

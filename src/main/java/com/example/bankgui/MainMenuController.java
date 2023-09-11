@@ -11,23 +11,26 @@ public class MainMenuController {
     @FXML
     private Button depositButton;
     @FXML
-    private Button checkBalanceButton;
+    private Button cbth; //Check balance and transaction history
     @FXML
     private Button logoutButton;
 
-    public void withdraw(){
-
+    public void withdraw() throws IOException {
+        Main m = new Main();
+        m.changeScene("WithdrawScreen.fxml");
     }
-    public void deposit(){
-        //getDepositAmount();
+    public void deposit() throws IOException {
+        Main m = new Main();
+        m.changeScene("DepositScreen.fxml");
     }
 
-    public void checkBalance(){
-
+    public void cbth() throws IOException {
+       // Need to do.
     }
+
     public void logout() throws IOException {
         Main m = new Main();
-        m.changeScene("BankMainMenu.fxml");
+        m.changeScene("BankLogin.fxml");
     }
 
 }
