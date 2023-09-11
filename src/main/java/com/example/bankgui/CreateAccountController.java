@@ -25,7 +25,7 @@ public class CreateAccountController {
     public void createAccount() throws IOException {
         Main m = new Main();
         String sCreatedPassword = createdPassword.getText();
-        String sVerifyPassword = createdPassword.getText();
+        String sVerifyPassword = verifyPassword.getText();
         if(sCreatedPassword.equals(sVerifyPassword)){
             addAccount();
             m.changeScene("BankLogin.fxml");
@@ -34,6 +34,7 @@ public class CreateAccountController {
             invalidPassword.setText("Your Passwords do not match, try again");
         }
     }
+
     public void addAccount(){
         String sCreatedPassword = createdPassword.getText();
         String sUsername = createdUsername.getText();

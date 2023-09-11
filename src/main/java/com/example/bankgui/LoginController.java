@@ -41,7 +41,8 @@ public class LoginController {
     private void checkLogin() throws IOException{
     Main m = new Main();
     DatabaseManager db = new DatabaseManager();
-    if(db.isPasswordCorrect(username.toString(),password.toString())){
+    if(db.isPasswordCorrect(username.getText(),password.getText())){
+        UserSession.setLoggedInUsername(username.getText());
         invalidLogin.setText("Successful Login");
         m.changeScene("BankMainMenu.fxml");
     }else if(username.getText().isEmpty() || password.getText().isEmpty()){

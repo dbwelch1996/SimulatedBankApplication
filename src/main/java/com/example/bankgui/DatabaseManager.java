@@ -71,4 +71,41 @@ public class DatabaseManager {
 
         return false; // If there was an error or no match found, return false
     }
+    public int getMoneyByUsername(String username) {
+        String sql = "SELECT money FROM UserData WHERE username = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("money");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1; // Return -1 if there was an error or the user doesn't exist
+    }
+    public boolean updateMoneyByUsername(String username, double newMoney) {
+        String sql = "UPDATE UserData SET money = ? WHERE username = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setDouble(1, newMoney);
+            preparedStatement.setString(2, username);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                connection.commit(); // Commit the transaction
+                return true; // Money updated successfully
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false; // Money update failed
+    }
+
 }

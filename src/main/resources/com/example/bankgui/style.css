@@ -1,3 +1,20 @@
 .backgroundColor{
     -fx-background-color: linear-gradient(to left, #060d46, #294c75);
 }
+/* Default button style */
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-border-width: 1px;
+    -fx-border-color: #2980b9;
+}
+
+/* Hovered button style */
+.button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Pressed button style */
+.button:pressed {
+    -fx-background-color: #2070a0;
+}

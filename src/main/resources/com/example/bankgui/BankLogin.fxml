@@ -14,20 +14,20 @@
    <children>
       <AnchorPane layoutX="235.0" layoutY="-3.0" prefHeight="393.0" prefWidth="365.0">
          <children>
-            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#userLogin" opacity="0.7" text="Login">
+            <TextField fx:id="username" layoutX="75.0" layoutY="124.0" promptText="Username" focusTraversable="true" />
+            <PasswordField fx:id="password" layoutX="75.0" layoutY="171.0" promptText="Password" focusTraversable="true" />
+            <Button fx:id="login" layoutX="123.0" layoutY="222.0" mnemonicParsing="false" onAction="#userLogin" opacity="0.7" text="Login" focusTraversable="true">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </Button>
-            <PasswordField fx:id="password" layoutX="75.0" layoutY="171.0" promptText="Password" />
-            <TextField fx:id="username" layoutX="75.0" layoutY="124.0" promptText="Username" />
             <Separator layoutX="63.0" layoutY="266.0" prefWidth="200.0" />
             <Label layoutX="123.0" layoutY="345.0" text="New User?" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="createAcc" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" onAction="#createAccount" opacity="0.7" text="Create Account" />
+            <Button fx:id="createAcc" layoutX="199.0" layoutY="340.0" mnemonicParsing="false" onAction="#createAccount" opacity="0.7" text="Create Account" focusTraversable="true" />
             <Label fx:id="invalidLogin" layoutX="68.0" layoutY="98.0" prefHeight="17.0" prefWidth="239.0" textFill="#f21313" />
          </children>
       </AnchorPane>
