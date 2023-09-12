@@ -9,6 +9,6 @@
       <Label layoutX="153.0" layoutY="70.0" text="Current Balance:" textFill="WHITE" />
       <Label fx:id="moneyLabel" layoutX="279.0" layoutY="70.0" textFill="WHITE" />
       <Button fx:id="cancelButton" layoutX="507.0" layoutY="358.0" mnemonicParsing="false" onAction="#cancel" text="Main Menu" />
-      <Label fx:id="transactionHistory" layoutX="153.0" layoutY="128.0" prefHeight="17.0" prefWidth="288.0" textFill="WHITE" />
+      <Label fx:id="transactionHistory" layoutX="102.0" layoutY="100.0" prefHeight="272.0" prefWidth="397.0" textFill="WHITE" />
    </children>
 </AnchorPane>

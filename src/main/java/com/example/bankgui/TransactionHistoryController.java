@@ -20,6 +20,7 @@ public class TransactionHistoryController {
         double amount = db.getMoneyByUsername(username);
         moneyLabel.setText("$" + amount);
         String returnString = db.getAllTransactionsByUsername(UserSession.getLoggedInUsername());
+        System.out.println(returnString);
         transactionHistory.setText(returnString);
     }
 
